@@ -19,6 +19,8 @@ interface Teacher {
 
 // console.log(teacher3);
 
+//task number 2 
+
 interface Directors extends Teacher {
   numberOfReports: number;
 }
@@ -33,6 +35,9 @@ interface Directors extends Teacher {
 // console.log(director1);
 
 /* eslint-disable @typescript-eslint/class-name-casing */
+
+//task number 3
+
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
@@ -46,6 +51,8 @@ export const printTeacher: printTeacherFunction = function (
 };
 
 // console.log(printTeacher("John", "Doe"));
+
+//task number 4 
 
 interface StudentConstructor {
   new (firstName: string, lastName: string): StudentClassInterface;
