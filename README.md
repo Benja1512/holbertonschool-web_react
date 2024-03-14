@@ -1,1 +1,1 @@
-This is Typescript projects
+this is react project
