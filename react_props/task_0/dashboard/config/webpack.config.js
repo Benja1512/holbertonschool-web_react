@@ -39,10 +39,6 @@ module.exports = {
 			}
 		]
 	},
-	resolve: {
-        extensions: ['.js', '.jsx']
-	},
-	
 	devtool: 'inline-source-map',
 	devServer: {
 		static: path.resolve('./dist'),
