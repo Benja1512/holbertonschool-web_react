@@ -1,22 +1,17 @@
+import React from 'react';
 import { shallow } from 'enzyme';
 import Notifications from './Notifications';
-import React from 'react';
 
-describe('Basic React Tests - <Notifications />', function() {
-	it('Should render without crashing', () => {
-		const wrapper = shallow(<Notifications />);
-		expect(wrapper.exists()).toBeTruthy();
-	});
+const wrapper = shallow(<Notifications />);
 
-	it('Should render three list items', () => {
-		const wrapper = shallow(<Notifications />);
-		expect(wrapper.find('li')).toHaveLength(3);
-	});
-
-	it('Should render the correct string', () => {
-		const wrapper = shallow(<Notifications />);
-		expect(wrapper.find('.Notifications p').text()).toEqual(
-			('Here is the list of notifications')
-		);
-	});
+it('renders without crashing', () => {
+  shallow(<Notifications />);
+});
+it('renders three list items', () => {
+  expect(wrapper.find('li').children().length).toEqual(3);
+});
+it('renders the <p>', () => {
+  expect(
+    wrapper.containsMatchingElement(<p>Here is the list of notifications</p>)
+  ).toBeTruthy();
 });

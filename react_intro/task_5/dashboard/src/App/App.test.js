@@ -1,25 +1,19 @@
+import React from 'react';
 import { shallow } from 'enzyme';
 import App from './App';
-import React from 'react';
 
-describe('Basic React Tests - <App />', function() {
-	it('Should render without crashing', () => {
-		const wrapper = shallow(<App />);
-		expect(wrapper.exists()).toBeTruthy();
-	});
+const wrapper = shallow(<App />);
 
-	it('Should render div with the class App-header', () => {
-		const wrapper = shallow(<App />);
-		expect(wrapper.find('.App-header')).toHaveLength(1);
-	});
+it('renders without crashing', () => {
+  shallow(<App />);
+});
 
-	it('Should render div with the class App-body', () => {
-		const wrapper = shallow(<App />);
-		expect(wrapper.find('.App-body')).toHaveLength(1);
-	});
-
-	it('Should render div with the class App-footer', () => {
-		const wrapper = shallow(<App />);
-		expect(wrapper.find('.App-footer')).toHaveLength(1);
-	});
+it('renders App-header', () => {
+  expect(wrapper.find('header.App-header').exists()).toEqual(true);
+});
+it('renders App-body', () => {
+  expect(wrapper.find('main.App-body').exists()).toEqual(true);
+});
+it('renders App-footer', () => {
+  expect(wrapper.find('footer.App-footer').exists()).toEqual(true);
 });

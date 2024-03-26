@@ -1,18 +1,14 @@
-:root {
-	--primary-color: #E11D3F;
-	font: 18px Helvetica, Arial, sans-serif;
-}
-
 .App-header {
+	background-color: white;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	color: var(--primary-color);
-	border-bottom: 3px solid var(--primary-color);
-}
-
-
-.App-logo {
-	height: 200px;
-	width: 200px;
-}
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
+	border-bottom: 4px solid var(--holb-red);
+  }
+  
+  .App-header h1 {
+	max-width: fit-content;
+	color: var(--holb-red);
+  }

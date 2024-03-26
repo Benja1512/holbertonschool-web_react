@@ -40,7 +40,9 @@ describe('<Notifications />', () => {
 
     it('renders an <Notifications /> component checking for 3 NotificationItems', () => {
         const wrapper = shallow(<Notifications displayDrawer={ true } listNotifications={ listNotifications } />);
-        expect(wrapper.find('.Notifications ul NotificationItem')).toHaveLength(3);
+        console.log(wrapper.debug());
+
+        expect(wrapper.find('.Notifications ul Memo(NotificationItem)')).toHaveLength(3);
     });
 
     it('verifies that the first NotificationItem element renders the html', () => {
