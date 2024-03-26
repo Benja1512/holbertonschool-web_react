@@ -29,6 +29,7 @@ module.exports = ({ mode } = { mode: "development" }) => {
               use: {
                 loader: "babel-loader"
               }
+			  
             },
             {
                 test: /\.css$/i,
@@ -43,12 +44,16 @@ module.exports = ({ mode } = { mode: "development" }) => {
                     options: {
                       bypassOnDebug: true, // webpack@1.x
                       disable: true, // webpack@2.x and newer
+					  presets: ['@babel/preset-env', '@babel/preset-react']
                     },
                   },
                 ],
             }
         ],
     },
+	resolve: {
+		extensions: ['.js', '.jsx']
+	  },
     plugins: [
       new HtmlWebpackPlugin({
         template: "./public/index.html"
