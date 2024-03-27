@@ -3,6 +3,11 @@ import { shallow } from 'enzyme';
 import Notifications from './Notifications';
 import NotificationItem from './NotificationItem';
 import { getLatestNotification } from '../utils/utils';
+import { StyleSheetTestUtils } from 'aphrodite';
+
+beforeEach(() => {
+    StyleSheetTestUtils.suppressStyleInjection();
+});
 
 const htmlObj = getLatestNotification();
 
@@ -20,29 +25,29 @@ describe('<Notifications />', () => {
 
     it('does display the menuItem when displayDrawer is false', () => {
         const wrapper = shallow(<Notifications displayDrawer={ false } />);
-        expect(wrapper.find('.menuItem')).toHaveLength(1);
+        expect(wrapper.find('#menuItem')).toHaveLength(1);
     });
 
-    it('does not display div.Notifications when displayDrawer is false', () => {
+    it('does not display the menuItem when displayDrawer is true', () => {
+        const wrapper = shallow(<Notifications displayDrawer={ true } />);
+        expect(wrapper.find('#menuItem')).toHaveLength(0);
+    });
+
+    it('does not display div#Notifications when displayDrawer is false', () => {
         const wrapper = shallow(<Notifications displayDrawer={ false } />);
-        expect(wrapper.find('.Notifications')).toHaveLength(0);
+        expect(wrapper.find('#Notifications')).toHaveLength(0);
     });
 
-    it('does display the menuItem when displayDrawer is true', () => {
+    it('does not display div#Notifications when displayDrawer is true', () => {
         const wrapper = shallow(<Notifications displayDrawer={ true } />);
-        expect(wrapper.find('.menuItem')).toHaveLength(1);
-    });
-
-    it('does not display div.Notifications when displayDrawer is true', () => {
-        const wrapper = shallow(<Notifications displayDrawer={ true } />);
-        expect(wrapper.find('.Notifications')).toHaveLength(1);
+        expect(wrapper.find('#Notifications')).toHaveLength(1);
     });
 
     it('renders an <Notifications /> component checking for 3 NotificationItems', () => {
         const wrapper = shallow(<Notifications displayDrawer={ true } listNotifications={ listNotifications } />);
-        console.log(wrapper.debug());
+        // console.log(wrapper.debug());
 
-        expect(wrapper.find('.Notifications ul Memo(NotificationItem)')).toHaveLength(3);
+        expect(wrapper.find('#Notifications ul Memo(NotificationItem)')).toHaveLength(3);
     });
 
     it('verifies that the first NotificationItem element renders the html', () => {
@@ -52,9 +57,9 @@ describe('<Notifications />', () => {
 
     it('verifies that Notifications renders correctly if you pass an empty array or without the listNotifications prop', () => {
         const wrapper = shallow(<Notifications displayDrawer={ true } />);
-        expect(wrapper.find('.Notifications')).toHaveLength(1);
+        expect(wrapper.find('#Notifications')).toHaveLength(1);
         const wrapperTwo = shallow(<Notifications displayDrawer={ true } listNotifications={ [] } />);
-        expect(wrapper.find('.Notifications')).toHaveLength(1);
+        expect(wrapper.find('#Notifications')).toHaveLength(1);
     });
 
     it('verifies that when you pass a list of notifications, the component renders it correctly and with the right number of NotificationItem', () => {
@@ -64,8 +69,8 @@ describe('<Notifications />', () => {
 
     it('verifies that Notifications renders correctly if you pass an empty array or without the listNotifications prop', () => {
         const wrapper = shallow(<Notifications displayDrawer={ true } />);
-        expect(wrapper.find('.Notifications p').text()).not.toEqual('Here is the list of notifications');
-        expect(wrapper.find('.Notifications p').text()).toEqual('No new notification for now');
+        expect(wrapper.find('#Notifications p').text()).not.toEqual('Here is the list of notifications');
+        expect(wrapper.find('#Notifications p').text()).toEqual('No new notification for now');
     });
 
     it('Verifies that when calling the function markAsRead on an instance of the component, the spy is being called with the right message', () => {
