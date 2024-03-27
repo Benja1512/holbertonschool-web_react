@@ -8,7 +8,7 @@ import Login from '../Login/Login';
 import Footer from '../Footer/Footer';
 import Notifications from '../Notifications/Notifications';
 import CourseList from '../CourseList/CourseList';
-import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBottom';
+import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBotton';
 import BodySection from '../BodySection/BodySection';
 import { getLatestNotification } from '../utils/utils';
 

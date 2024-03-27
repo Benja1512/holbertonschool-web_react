@@ -1,14 +1,10 @@
-:root {
-	--primary-color: #E11D3F;
-	font: 18px Helvetica, Arial, sans-serif;
-}
+/* App-footer */
 
 .App-footer {
+	font-style: italic;
+	border-top: 4px solid var(--holb-red);
 	display: flex;
-	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	border-top: 3px solid var(--primary-color);
-	padding: 1rem;
-	font-style: italic;
-}
+	min-height: 5vmin;
+  }
