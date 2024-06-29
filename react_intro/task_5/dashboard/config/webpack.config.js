@@ -11,8 +11,22 @@ module.exports = {
         contentBase: path.resolve(__dirname, '../dist'),
         hot: true,
     },
-    module: {
+    module: { // <-- This is where the typo was previously
         rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                },
+            },
+            {
+                test: /\.jsx$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                },
+            },
             {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader'],
@@ -69,4 +83,7 @@ module.exports = {
         }),
     ],
     devtool: 'inline-source-map',
+    resolve: {
+        extensions: ['.js', '.jsx'],
+    },
 };
