@@ -27,6 +27,37 @@ module.exports = {
                             outputPath: 'images/',
                         },
                     },
+                    {
+                        loader: 'image-webpack-loader',
+                        options: {
+                            mozjpeg: {
+                                progressive: true,
+                            },
+                            // Optimize PNG
+                            optipng: {
+                                enabled: true,
+                            },
+                            pngquant: {
+                                quality: [0.65, 0.90],
+                                speed: 4,
+                            },
+                            // Optimize GIF
+                            gifsicle: {
+                                interlaced: false,
+                            },
+                            // Optimize SVG
+                            svgo: {
+                                plugins: [
+                                    {
+                                        removeViewBox: false,
+                                    },
+                                    {
+                                        removeEmptyAttrs: false,
+                                    },
+                                ],
+                            },
+                        },
+                    },
                 ],
             },
         ],
