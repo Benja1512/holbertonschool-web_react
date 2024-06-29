@@ -1,14 +1,13 @@
 :root {
-	--primary-color: #E11D3F;
-	font: 18px Helvetica, Arial, sans-serif;
-}
-
-.App-footer {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	border-top: 3px solid var(--primary-color);
-	padding: 1rem;
-	font-style: italic;
-}
+    --main-color: #e01d3f;
+  }
+  
+  .footer {
+    border-top: 3px solid var(--main-color);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    font-style: italic;
+  }
